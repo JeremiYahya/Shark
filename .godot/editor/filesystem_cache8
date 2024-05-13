@@ -1,7 +1,13 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1715500842
+::res://::1715583979
 icon.svg::CompressedTexture2D::6094954192655854838::1715448469::1715448503::1::::<><>::
-::res://scenes/::1715500481
-main.tscn::PackedScene::4786620254071678901::1715500481::0::1::::<><>::
-::res://sprites/::1715500854
+::res://scenes/::1715529204
+game.gd::GDScript::-1::1715528085::0::1::::Game<>Node2D<>::
+main.tscn::PackedScene::4786620254071678901::1715529203::0::1::::<><>::uid://doswt1in7ekff::::res://sprites/square.png<>res://scenes/game.gd<>res://scenes/shark.gd
+missile.gd::GDScript::-1::1715528994::0::1::::<>CharacterBody2D<>::
+missile.tscn::PackedScene::7882372604914395060::1715529204::0::1::::<><>::res://scenes/missile.gd<>uid://doswt1in7ekff::::res://sprites/square.png
+shark.gd::GDScript::-1::1715525936::0::1::::Shark<>CharacterBody2D<>::
+submarine.gd::GDScript::-1::1715528271::0::1::::Submarine<>CharacterBody2D<>::
+submarine.tscn::PackedScene::8691984960563328542::1715529204::0::1::::<><>::res://scenes/submarine.gd<>uid://doswt1in7ekff::::res://sprites/square.png
+::res://sprites/::1715500857
 square.png::CompressedTexture2D::8180435744109019031::1715500854::1715500857::1::::<><>::

@@ -1,7 +1,9 @@
 res://scenes/main.tscn
-res://scenes/shark.gd
-res://scenes/game.gd
-res://scenes/submarine.gd
 res://scenes/submarine.tscn
-res://scenes/missile.gd
 res://scenes/missile.tscn
+res://scenes/shark.gd
+res://scenes/submarine.gd
+res://scenes/missile.gd
+res://scenes/game.gd
+res://scenes/ui.gd
+res://scenes/main.gd

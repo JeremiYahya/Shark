@@ -6,13 +6,19 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_7a3ky"]
 radius = 16.0
 
-[node name="Missile" type="CharacterBody2D" node_paths=PackedStringArray("timer")]
+[node name="Missile" type="CharacterBody2D" node_paths=PackedStringArray("homing_timer", "active_timer")]
 collision_layer = 4
 script = ExtResource("1_qkofd")
-timer = NodePath("Timer")
+homing_timer = NodePath("HomingTimer")
+active_timer = NodePath("ActiveTimer")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="HomingTimer" type="Timer" parent="."]
 wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="ActiveTimer" type="Timer" parent="."]
+wait_time = 15.0
 one_shot = true
 autostart = true
 

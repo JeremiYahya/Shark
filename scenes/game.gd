@@ -1,14 +1,13 @@
 class_name Game
 extends Node2D
 
-@export var game_timer: Timer
 @export var spawn_timer: Timer
 var submarine: PackedScene = preload("res://scenes/submarine.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_summon_submarine()
+	spawn_timer.timeout.connect(summon_submarine)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,7 +15,7 @@ func _process(delta):
 	pass
 
 
-func _summon_submarine():
+func summon_submarine():
 	var spawn_region: int = randi_range(0, 3)
 	var spawn_position: Vector2 = Vector2()
 	var pos_x: float
@@ -30,4 +29,5 @@ func _summon_submarine():
 	var sub = submarine.instantiate()
 	add_child(sub)
 	sub.position = Vector2(pos_x, pos_y)
+	sub.target_pos = sub.set_random_destination()
 	sub.missile_spawned.connect(func(x): add_child(x))
