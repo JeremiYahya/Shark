@@ -1,16 +1,93 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv3pytcv4htx3"]
+[gd_scene load_steps=14 format=3 uid="uid://dv3pytcv4htx3"]
 
 [ext_resource type="Script" path="res://scenes/submarine.gd" id="1_ivayp"]
-[ext_resource type="Texture2D" uid="uid://doswt1in7ekff" path="res://sprites/square.png" id="2_j8dui"]
+[ext_resource type="Texture2D" uid="uid://cy34f2e2mq73o" path="res://sprites/Submarine.png" id="2_y3wq6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojsrl"]
+atlas = ExtResource("2_y3wq6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2yft"]
+atlas = ExtResource("2_y3wq6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58f8x"]
+atlas = ExtResource("2_y3wq6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osfuo"]
+atlas = ExtResource("2_y3wq6")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_465of"]
+atlas = ExtResource("2_y3wq6")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onbty"]
+atlas = ExtResource("2_y3wq6")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vra2"]
+atlas = ExtResource("2_y3wq6")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fitk"]
+atlas = ExtResource("2_y3wq6")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8dh4"]
+atlas = ExtResource("2_y3wq6")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f445a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojsrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2yft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58f8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osfuo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_465of")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onbty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vra2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fitk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8dh4")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dxygd"]
 radius = 32.0
 
-[node name="Submarine" type="CharacterBody2D" node_paths=PackedStringArray("missile_timer", "move_timer")]
+[node name="Submarine" type="CharacterBody2D" node_paths=PackedStringArray("missile_timer", "move_timer", "anim")]
 collision_layer = 2
 script = ExtResource("1_ivayp")
 missile_timer = NodePath("MissileTimer")
 move_timer = NodePath("MoveTimer")
+anim = NodePath("AnimatedSprite2D")
 
 [node name="MissileTimer" type="Timer" parent="."]
 one_shot = true
@@ -18,11 +95,10 @@ one_shot = true
 [node name="MoveTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="ChargeTimer" type="Timer" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0, 0, 0, 1)
-texture = ExtResource("2_j8dui")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_f445a")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_dxygd")

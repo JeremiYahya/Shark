@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://kv0nt3kegsg7"]
+
+[ext_resource type="AudioStream" uid="uid://clbr80pv1n3hb" path="res://audio/missile_launch.wav" id="1_3atmg"]
+[ext_resource type="Script" path="res://scenes/sfx.gd" id="2_wvol5"]
+
+[node name="MissileLaunch" type="AudioStreamPlayer"]
+stream = ExtResource("1_3atmg")
+autoplay = true
+script = ExtResource("2_wvol5")

@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://dg7tvvv06aqpj"]
+
+[ext_resource type="Script" path="res://scenes/credit_ui.gd" id="1_m1hu1"]
+[ext_resource type="Texture2D" uid="uid://doswt1in7ekff" path="res://sprites/square.png" id="2_7qn3f"]
+[ext_resource type="FontFile" uid="uid://dth35lg71oqfn" path="res://fonts/Pixellari.ttf" id="3_vmmmv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jcguj"]
+font = ExtResource("3_vmmmv")
+font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_t0aw4"]
+font = ExtResource("3_vmmmv")
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_b7ldl"]
+font = ExtResource("3_vmmmv")
+font_size = 24
+
+[node name="CreditUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+script = ExtResource("1_m1hu1")
+
+[node name="BG" type="TextureRect" parent="."]
+self_modulate = Color(0, 0, 0, 0.25098)
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_7qn3f")
+
+[node name="CreditText" type="Label" parent="BG"]
+layout_mode = 0
+offset_left = 440.0
+offset_right = 840.0
+offset_bottom = 150.0
+text = "Credits"
+label_settings = SubResource("LabelSettings_jcguj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditText2" type="Label" parent="BG"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 150.0
+offset_right = 1040.0
+offset_bottom = 550.0
+text = "Programmer - MintJelly
+Pixel Artist - AlphaIsTimZ
+UI Designer - EmYiKay"
+label_settings = SubResource("LabelSettings_t0aw4")
+horizontal_alignment = 1
+
+[node name="CloseLabel" type="Label" parent="BG"]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 600.0
+offset_right = 890.0
+offset_bottom = 660.0
+text = "Click anywhere to back to menu"
+label_settings = SubResource("LabelSettings_b7ldl")
+horizontal_alignment = 1
+vertical_alignment = 1

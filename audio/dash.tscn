@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://esn05lgkq2du"]
+
+[ext_resource type="AudioStream" uid="uid://b4pol5do0yhi2" path="res://audio/dash.wav" id="1_krump"]
+[ext_resource type="Script" path="res://scenes/sfx.gd" id="2_sod78"]
+
+[node name="Dash" type="AudioStreamPlayer"]
+stream = ExtResource("1_krump")
+autoplay = true
+script = ExtResource("2_sod78")

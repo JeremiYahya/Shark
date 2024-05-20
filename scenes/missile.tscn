@@ -1,16 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://dkkjr4do1mh53"]
 
 [ext_resource type="Script" path="res://scenes/missile.gd" id="1_qkofd"]
-[ext_resource type="Texture2D" uid="uid://doswt1in7ekff" path="res://sprites/square.png" id="2_vxfct"]
+[ext_resource type="Texture2D" uid="uid://dubvxyhh4w1je" path="res://sprites/Missile.png" id="2_awt4h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7a3ky"]
-radius = 16.0
+radius = 8.0
 
-[node name="Missile" type="CharacterBody2D" node_paths=PackedStringArray("homing_timer", "active_timer")]
+[node name="Missile" type="CharacterBody2D" node_paths=PackedStringArray("homing_timer", "active_timer", "enable_collider_timer")]
 collision_layer = 4
+collision_mask = 15
 script = ExtResource("1_qkofd")
 homing_timer = NodePath("HomingTimer")
 active_timer = NodePath("ActiveTimer")
+enable_collider_timer = NodePath("EnableColliderTimer")
 
 [node name="HomingTimer" type="Timer" parent="."]
 wait_time = 3.0
@@ -22,10 +24,17 @@ wait_time = 15.0
 one_shot = true
 autostart = true
 
+[node name="EnableColliderTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.752941, 0.752941, 0.752941, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_vxfct")
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_awt4h")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7a3ky")
+disabled = true

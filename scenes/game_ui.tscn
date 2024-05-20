@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjdod3jbnwl6j"]
+
+[ext_resource type="Script" path="res://scenes/game_ui.gd" id="1_6ailg"]
+[ext_resource type="FontFile" uid="uid://dth35lg71oqfn" path="res://fonts/Pixellari.ttf" id="2_khjfk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7vmqe"]
+font = ExtResource("2_khjfk")
+
+[sub_resource type="LabelSettings" id="LabelSettings_dlspc"]
+font = ExtResource("2_khjfk")
+
+[sub_resource type="LabelSettings" id="LabelSettings_x3dmx"]
+font = ExtResource("2_khjfk")
+
+[node name="GameUI" type="Control" node_paths=PackedStringArray("level_label", "sub_destroyed_label", "time_label", "hp_container")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+script = ExtResource("1_6ailg")
+level_label = NodePath("LevelLabel")
+sub_destroyed_label = NodePath("SubDestroyedLabel")
+time_label = NodePath("TimeLabel")
+hp_container = NodePath("HPContainer")
+
+[node name="LevelLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 40.0
+text = "Level: 999"
+label_settings = SubResource("LabelSettings_7vmqe")
+vertical_alignment = 1
+
+[node name="SubDestroyedLabel" type="Label" parent="."]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+text = "Sub Destroyed: 9999"
+label_settings = SubResource("LabelSettings_dlspc")
+vertical_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="."]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 200.0
+offset_bottom = 120.0
+text = "Time: 999:59"
+label_settings = SubResource("LabelSettings_x3dmx")
+vertical_alignment = 1
+
+[node name="HPContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 120.0
+offset_right = 64.0
+offset_bottom = 184.0

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1gx2vgsoyav"]
+
+[ext_resource type="AudioStream" uid="uid://dlj6vtkl3uif3" path="res://audio/crunch.mp3" id="1_6eifa"]
+[ext_resource type="Script" path="res://scenes/sfx.gd" id="2_iocfw"]
+
+[node name="Crunch" type="AudioStreamPlayer"]
+stream = ExtResource("1_6eifa")
+autoplay = true
+script = ExtResource("2_iocfw")

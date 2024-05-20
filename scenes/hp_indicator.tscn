@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6xxj1v77rxo4"]
+
+[ext_resource type="Texture2D" uid="uid://dupwji4nk0lm7" path="res://sprites/HP.png" id="1_eqcrh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpraa"]
+atlas = ExtResource("1_eqcrh")
+region = Rect2(0, 0, 32, 32)
+
+[node name="HPIndicator" type="TextureRect"]
+texture = SubResource("AtlasTexture_qpraa")

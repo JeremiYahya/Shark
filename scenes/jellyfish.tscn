@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://skgsfpj1m6mv"]
+
+[ext_resource type="Texture2D" uid="uid://dsh57jnfb83e6" path="res://sprites/Jellyfish.png" id="1_4qxha"]
+[ext_resource type="Script" path="res://scenes/jellyfish.gd" id="1_7khnd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pva1t"]
+atlas = ExtResource("1_4qxha")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kwxv"]
+atlas = ExtResource("1_4qxha")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08jb1"]
+atlas = ExtResource("1_4qxha")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jf0pq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pva1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kwxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08jb1")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nfg08"]
+radius = 16.0
+
+[node name="Jellyfish" type="Area2D" node_paths=PackedStringArray("active_timer")]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_7khnd")
+active_timer = NodePath("ActiveTimer")
+
+[node name="ActiveTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_jf0pq")
+animation = &"swim"
+frame_progress = 0.372187
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nfg08")

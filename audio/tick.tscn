@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://gldna36gxq62"]
+
+[ext_resource type="AudioStream" uid="uid://crpfdup7w2ifw" path="res://audio/tick.mp3" id="1_s7cbc"]
+[ext_resource type="Script" path="res://scenes/sfx.gd" id="2_icohg"]
+
+[node name="Tick" type="AudioStreamPlayer"]
+stream = ExtResource("1_s7cbc")
+autoplay = true
+script = ExtResource("2_icohg")

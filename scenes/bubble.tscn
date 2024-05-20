@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://w8c6lbi6njqv"]
+
+[ext_resource type="Texture2D" uid="uid://blkfyj8e4qefs" path="res://sprites/Air Bubble.png" id="1_k8eka"]
+[ext_resource type="Script" path="res://scenes/bubble.gd" id="2_h71by"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygrrf"]
+atlas = ExtResource("1_k8eka")
+region = Rect2(0, 0, 32, 32)
+
+[node name="Bubble" type="Sprite2D" node_paths=PackedStringArray("timer")]
+self_modulate = Color(1, 1, 1, 0.501961)
+texture_filter = 1
+texture = SubResource("AtlasTexture_ygrrf")
+script = ExtResource("2_h71by")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+autostart = true
